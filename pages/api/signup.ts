@@ -12,13 +12,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   let user;
 
   try {
-    console.log(email)
     user = await prisma.user.create({
       data: {
         email,
         password: bcrypt.hashSync(password, salt),
         firstName: "ravi",
-        lastName: "radadiya"
+        lastName: "radadiya",
       },
     });
   } catch (error) {
@@ -33,7 +32,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       id: user.id,
       time: Date.now(),
     },
-    "secret",
+    "secret", // define in the env file
     { expiresIn: "8h" }
   );
 
