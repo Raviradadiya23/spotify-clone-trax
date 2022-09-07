@@ -70,7 +70,7 @@ const SideBar = () => {
       <ListMenu menus={navMenu} top={{ marginBottom: "20px" }} />
 
       <ListMenu menus={musicMenu} top={{ marginTop: "20px" }} />
-      <Divider color="gray.800" />
+      <Divider color="gray.800" marginTop="20px" />
       <Box
         height="66%"
         overflowY="auto"
