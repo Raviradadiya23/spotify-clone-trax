@@ -4,10 +4,8 @@ import NextLink from "next/link";
 import {
   Box,
   Divider,
-  Center,
   List,
   ListItem,
-  ListIcon,
   LinkBox,
   LinkOverlay,
 } from "@chakra-ui/layout";
@@ -19,40 +17,41 @@ import {
   MdFavorite,
 } from "react-icons/md";
 import ListMenu from "./ListMenu";
+import { usePlaylist } from "../lib/hooks";
 
+const navMenu = [
+  {
+    name: "Home",
+    icon: MdHome,
+    route: "/",
+  },
+  {
+    name: "Search",
+    icon: MdSearch,
+    route: "/search",
+  },
+  {
+    name: "Your Library",
+    icon: MdLibraryMusic,
+    route: "/library",
+  },
+];
+
+const musicMenu = [
+  {
+    name: "Create Playlist",
+    icon: MdPlaylistAdd,
+    route: "/",
+  },
+  {
+    name: "Favorites",
+    icon: MdFavorite,
+    route: "/favorites",
+  },
+];
 const SideBar = () => {
-  const navMenu = [
-    {
-      name: "Home",
-      icon: MdHome,
-      route: "/",
-    },
-    {
-      name: "Search",
-      icon: MdSearch,
-      route: "/search",
-    },
-    {
-      name: "Your Library",
-      icon: MdLibraryMusic,
-      route: "/library",
-    },
-  ];
-
-  const musicMenu = [
-    {
-      name: "Create Playlist",
-      icon: MdPlaylistAdd,
-      route: "/",
-    },
-    {
-      name: "Favorites",
-      icon: MdFavorite,
-      route: "/favorites",
-    },
-  ];
-
-  const playlists = new Array(30).fill(1).map((_, i) => `Playlist ${i + 1}`);
+  // const playlists = new Array(30).fill(1).map((_, i) => `Playlist ${i + 1}`);
+  const { playlists } = usePlaylist();
   return (
     <Box
       bg="black"
@@ -72,7 +71,7 @@ const SideBar = () => {
       <ListMenu menus={musicMenu} top={{ marginTop: "20px" }} />
       <Divider color="gray.800" marginTop="20px" />
       <Box
-        height="50%"
+        height="66%"
         overflowY="auto"
         paddingY="20px"
         css={{
@@ -83,10 +82,10 @@ const SideBar = () => {
       >
         <List spacing={2}>
           {playlists.map((playlist) => (
-            <ListItem paddingX="20px" key={playlist}>
+            <ListItem paddingX="20px" key={playlist?.id}>
               <LinkBox>
                 <NextLink href="/" passHref>
-                  <LinkOverlay>{playlist}</LinkOverlay>
+                  <LinkOverlay>{playlist?.name}</LinkOverlay>
                 </NextLink>
               </LinkBox>
             </ListItem>
