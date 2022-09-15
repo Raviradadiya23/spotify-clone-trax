@@ -30,9 +30,6 @@ const AuthForm: FC<{ mode: "signin" | "signup" }> = ({ mode }) => {
       >
         <NextImage src="/logo.svg" height={60} width={120} />
       </Flex>
-      {/* <Flex justify="center" align="center">
-        <h1>Login Page</h1>
-      </Flex> */}
 
       <Flex justify="center" align="center" height="calc(100vh - 100px)">
         <Center>
