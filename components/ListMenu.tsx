@@ -1,4 +1,3 @@
-import NextImage from "next/image";
 import NextLink from "next/link";
 
 import {
@@ -6,7 +5,6 @@ import {
   List,
   ListItem,
   ListIcon,
-  Center,
   LinkBox,
   LinkOverlay,
 } from "@chakra-ui/layout";

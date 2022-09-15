@@ -57,8 +57,7 @@ const run = async () => {
 };
 
 run()
-  .catch((e) => {
-    console.error(e);
+  .catch(() => {
     process.exit(1);
   })
   .finally(async () => {

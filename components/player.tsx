@@ -110,8 +110,6 @@ const Player = ({ songs, activeSong }) => {
   };
 
   const onSeek = (e) => {
-    console.log("e", e);
-    console.log("parseFloat(e[0])", parseFloat(e[0]));
     setSeek(parseFloat(e[0]));
     soundRef.current.seek(e[0]);
   };
@@ -195,13 +193,12 @@ const Player = ({ songs, activeSong }) => {
           </Box>
           <Box width="80%">
             <RangeSlider
-              // eslint-disable-next-line jsx-a11y/aria-proptypes
               aria-label={["min", "max"]}
               step={0.1}
               min={0}
               id="player-range"
               max={duration ? (duration.toFixed(2) as unknown as number) : 0}
-              onChange={(e) => onSeek(e)}
+              onChange={onSeek}
               value={[seek]}
               onChangeStart={() => setIsSeeking(true)}
               onChangeEnd={() => setIsSeeking(false)}
