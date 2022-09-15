@@ -1,6 +1,8 @@
 import "reset-css";
 import { extendTheme, ChakraProvider } from "@chakra-ui/react";
+import { Provider } from "react-redux";
 import PlayerLayout from "../components/PlayerLayout";
+import store from "../lib/store";
 
 const theme = extendTheme({
   colors: {
@@ -32,13 +34,15 @@ const theme = extendTheme({
 const MyApp = ({ Component, pageProps }) => {
   return (
     <ChakraProvider theme={theme}>
-      {Component.authPage ? (
-        <Component {...pageProps} />
-      ) : (
-        <PlayerLayout>
+      <Provider store={store}>
+        {Component.authPage ? (
           <Component {...pageProps} />
-        </PlayerLayout>
-      )}
+        ) : (
+          <PlayerLayout>
+            <Component {...pageProps} />
+          </PlayerLayout>
+        )}
+      </Provider>
     </ChakraProvider>
   );
 };
