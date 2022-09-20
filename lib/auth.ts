@@ -10,7 +10,7 @@ export const validateRoute = (handler) => {
       let user;
 
       try {
-        const { id } = jwt.verify(token, "secret");
+        const { id } = jwt.verify(token, process.env.JWT_PASSWORD);
         user = await prisma.user.findUnique({
           where: { id },
         });
@@ -33,6 +33,6 @@ export const validateRoute = (handler) => {
 };
 
 export const validateToken = (token) => {
-  const user = jwt.verify(token, "secret");
+  const user = jwt.verify(token, process.env.JWT_PASSWORD);
   return user;
 };
