@@ -11,25 +11,22 @@
 .parent {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
-}
-
-.page_404 img {
-  width: 100%;
+  align-items: center;
+  flex-direction: column;
 }
 
 .four_zero_four_bg {
   background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
   height: 400px;
+  width: 900px;
   background-position: center;
-  /* background-repeat: no-repeat; */
-  /* align-items: center;
-  align-self: stretch; */
+  margin-top: 20px;
 }
 
 .four_zero_four_bg h1 {
   font-size: 80px;
-  margin-left: 50px;
+  margin-left: 380px;
+  margin-bottom: 150px;
 }
 
 .four_zero_four_bg h3 {
@@ -42,8 +39,6 @@
   background: #39ac31;
   margin: 20px 0;
   display: inline-block;
-  /* justify-content: center; */
-  margin-left: 60px;
 }
 .contant_box_404 {
   align-self: center;
